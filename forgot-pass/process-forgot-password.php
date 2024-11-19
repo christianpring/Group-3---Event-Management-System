@@ -4,9 +4,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-require_once __DIR__ . '/../ITELEC 2/database/dbconnection.php';
-include_once __DIR__ . '/../ITELEC 2/config/settings-configuration.php';
-require_once __DIR__ . '/../ITELEC 2/src/vendor/autoload.php';
+require_once __DIR__ . '/../database/dbconnection.php';
+include_once __DIR__ . '/../config/settings-configuration.php';
+require_once __DIR__ . '/../src/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -54,7 +54,7 @@ $mail->Password = $smtp_password;
 $mail->setFrom($smtp_email, "Admin");
 $mail->addAddress($email);
 $mail->Subject = "Password Reset";
-$mail->Body = "Click <a href=\"http://localhost/ITELEC%202/reset-password.php?token=$token\">HERE</a> to reset your password.";
+$mail->Body = "Click <a href=\"http://localhost/ITELEC%202/forgot-pass/reset-password.php?token=$token\">HERE</a> to reset your password.";
 
 
 try {

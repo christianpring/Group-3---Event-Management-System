@@ -258,17 +258,19 @@
                 $stmt = $this->conn->prepare("SELECT * FROM user WHERE email = :email AND status = :status");
                 $stmt->execute(array(":email" => $email, ":status" => "active"));
                 
-                if ($stmt->rowCount() == 1) {  // Check if a row was found
-                    $userRow = $stmt->fetch(PDO::FETCH_ASSOC);  // Now fetch the row
+                if ($stmt->rowCount() == 1) { 
+                    $userRow = $stmt->fetch(PDO::FETCH_ASSOC);  
         
                     if ($userRow['status'] == "active") {
                         if ($userRow['password'] == md5($password)) {
                             $activity = "Has Successfully signed in.";
                             $user_id = $userRow['id'];
                             $this->logs($activity, $user_id);
+
+                            $this->ifUserAdmin($userRow['role']);
         
                             $_SESSION['adminSession'] = $user_id;
-                            echo "<script>alert('Welcome'); window.location.href = '../';</script>";
+                            
                             exit;
                         } else {
                             echo "<script>alert('Password is incorrect.'); window.location.href = '../../../';</script>";
@@ -338,6 +340,14 @@
         {
             $stmt = $this->conn->prepare($sql);
             return $stmt;
+        }
+
+        public function ifUserAdmin($role) {
+            if ($role === "admin") {
+                echo "<script> alert ('Welcome Admin'); window.location.href = '../'; </script> ";
+            } elseif ($role === "user") {
+                echo "<script> alert ('Welcome User'); window.location.href = '../../user/index.php'; </script> ";
+            }
         }
 
     }

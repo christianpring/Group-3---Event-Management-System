@@ -4,13 +4,11 @@ include_once 'config/settings-configuration.php';
 
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -27,7 +25,6 @@ include_once 'config/settings-configuration.php';
             text-align: center; 
         }
 
-        
         form {
             background: #fff;
             padding: 20px;
@@ -36,34 +33,40 @@ include_once 'config/settings-configuration.php';
             width: 300px; 
         }
 
-        
+        input[type="text"],
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        select {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 3px;
             box-sizing: border-box; 
+            font-size: 16px; 
+            cursor: pointer; 
         }
 
-        
+        select:focus {
+            border-color: #5cb85c; 
+            outline: none; 
+            box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); 
+        }
+
         .button {
             background-color: #5cb85c;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 15px;
             border-radius: 3px;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.3s; 
         }
 
         .button:hover {
             background-color: #4cae4c;
         }
 
-        
         .links {
             margin-top: 15px;
             text-align: center;
@@ -73,26 +76,30 @@ include_once 'config/settings-configuration.php';
         .links a {
             color: #007bff;
             text-decoration: none;
-            margin: 0 5px; 
+            margin: 0 10px;
         }
 
         .links a:hover {
             text-decoration: underline;
         }
+
+        
+        
     </style>
 </head>
 <body>
 
     <form action="dashboard/admin/authentication/admin-class.php" method="POST">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
+        <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
-        <button type="submit" name="btn-signin" class="button">Log in</button>
+        
+        <button type="submit" name="btn-signup" class="button">Sign Up</button>
         
         <div class="links">
-            <p>Do you have an account? <a href="register.php">Sign up here</a></p>
-            <p><a href="forgot-pass/forgot-password.php">Forgot Password?</a></p>
+            <p>Already have an account? <a href="index.php">Log in</a></p>
         </div>
     </form>
 

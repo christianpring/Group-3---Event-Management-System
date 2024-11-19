@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once __DIR__ . '/../ITELEC 2/database/dbconnection.php';
+require_once __DIR__ . '/../database/dbconnection.php';
 
 $token = filter_input(INPUT_GET, 'token');
 

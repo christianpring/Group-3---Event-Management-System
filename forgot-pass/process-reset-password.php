@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../ITELEC 2/database/dbconnection.php';
-include_once __DIR__ . '/../ITELEC 2/config/settings-configuration.php';
+require_once __DIR__ . '/../database/dbconnection.php';
+include_once __DIR__ . '/../config/settings-configuration.php';
 
 $token = filter_input(INPUT_GET, 'token');
 
