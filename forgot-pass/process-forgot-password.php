@@ -54,12 +54,12 @@ $mail->Password = $smtp_password;
 $mail->setFrom($smtp_email, "Admin");
 $mail->addAddress($email);
 $mail->Subject = "Password Reset";
-$mail->Body = "Click <a href=\"http://localhost/ITELEC%202/forgot-pass/reset-password.php?token=$token\">HERE</a> to reset your password.";
+$mail->Body = "Click <a href=\"http://localhost/Group-3---Event-Management-System/forgot-pass/reset-password.php?token=$token\">HERE</a> to reset your password.";
 
 
 try {
     $mail->send();
-    echo "<script>alert('Message sent, please check your inbox.'); window.location.href = 'http://localhost/ITELEC%202/';</script>";
+    echo "<script>alert('Message sent, please check your inbox.'); window.location.href = 'http://localhost/Group-3---Event-Management-System/';</script>";
 
 } catch (Exception $e) {
     echo "Mailer Error: " . $mail->ErrorInfo;

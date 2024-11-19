@@ -45,6 +45,6 @@ $sql = "UPDATE user
 $stmt = $mysqli->prepare($sql);
 $stmt->execute([$password_hash, $user["id"]]);
 
-echo "<script>alert('Password updated. You can now login.'); window.location.href = 'http://localhost/ITELEC%202/';</script>";
+echo "<script>alert('Password updated. You can now login.'); window.location.href = 'http://localhost/Group-3---Event-Management-System/';</script>";
 
 ?>
