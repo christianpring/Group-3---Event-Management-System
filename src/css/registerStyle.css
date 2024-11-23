@@ -1,0 +1,127 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #0F2573;
+    color: #ADE1FB;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ADE1FB; 
+}
+
+nav .logo:hover{
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ADE1FB; 
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500; 
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover, 
+nav ul li a:active {
+    color: #041D56;
+    border-bottom: 3px solid #041D56;
+}
+
+.container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 75vh; 
+    padding: 50px;
+    position: relative; 
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+select:focus {
+    border-color: #5cb85c; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); 
+}
+
+.button {
+    background-color: #0F2573;
+    color: #ADE1FB;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #266CA9;
+}
+
+.links {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px; 
+}
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
