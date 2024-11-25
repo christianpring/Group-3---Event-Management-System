@@ -19,14 +19,29 @@ if(!$admin->isUserLoggedIn())
     <link rel="stylesheet" href="../../src/css/admin.css">
 </head>
 <body>
-    <nav>
+<body>
+    <div class="sidebar">
         <div class="logo">G3MS</div>
-        <ul class="main-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="bookEvent.php">Book Event</a></li>
-            <li><a href="aboutUs.php">About Us</a></li>
+        <ul class="sidebar-nav">
+            <li class="dropdown">
+                <a href="userMan.php" class="dropdown-btn">User Management</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewUser.php">View User</a></li>
+                    <li><a href="removeUser.php">Remove User</a></li>
+                </ul>
+            </li>
+            <li><a href="eventMan.php">Event Management</a></li>
+            <li><a href="ticketMan.php">Ticket Management</a></li>
         </ul>
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
-    </nav>
+    </div>
+</body>
+
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <!-- You can add more content here -->
+        <h1></h1>
+    </div>
 </body>
 </html>
