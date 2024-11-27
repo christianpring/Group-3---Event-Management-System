@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="dropdown-menu">
                 <li><a href="viewUser.php">View User</a></li>
                 <li><a href="removeUser.php">Remove User</a></li>
+                <li><a href="userLogs.php">User Logs</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -59,9 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropdown-btn">Ticket Management</a>
             <ul class="dropdown-menu">
-                <li><a href="ticketMan.php">View Tickets</a></li>
-                <li><a href="mngTickets.php">Manage Tickets</a></li>
-                    <li><a href="viewTrans.php">View Transaction</a></li>
+            <li><a href="mngTickets.php">Manage Tickets</a></li>
+            <li><a href="viewTrans.php">View Transaction</a></li>
             </ul>
         </li>
     </ul>
@@ -70,10 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Main Content Area -->
     <div class="content">
-        <h1>Create an Event</h1>
+        <h1></h1>
     </div>
 
-    <!-- JavaScript -->
-    <script src="../../src/js/sidebar.js"></script>
 </body>
 </html>
