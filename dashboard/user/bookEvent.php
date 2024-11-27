@@ -80,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="../../src/css/bookEvent.css">
+    <title>Event Booking</title>
+    <link rel="stylesheet" href="../../src/css/user.css">
 </head>
 <body>
     <nav>
