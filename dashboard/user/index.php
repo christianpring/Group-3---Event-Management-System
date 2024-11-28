@@ -19,6 +19,8 @@ include_once '../../config/settings-configuration.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../src/css/user.css">
+    
+
 </head>
 <body>
     <nav>
@@ -38,13 +40,17 @@ include_once '../../config/settings-configuration.php';
     <p>"From concept to completion, we deliver events that resonate. Let us turn your goals into unforgettable experiences."</p>
   </div>
 
-  <div class="events">
-    <div><img src="../../src/img/birthday.jpeg" alt="Birthday"><p>Birthday</p></div>
-    <div><img src="../../src/img/wedding.jpeg" alt="Wedding"><p>Wedding</p></div>
-    <div><img src="../../src/img/christening.jpeg" alt="Christening"><p>Christening</p></div>
-    <div><img src="../../src/img/anniversary.jpeg" alt="Anniversary"><p>Anniversary</p></div>
+  <div class="slider">
+  <div class="slider-container">
+    <div class="slide"><img src="../../src/img/birthday.jpeg" alt="Birthday"><p>Birthday</p></div>
+    <div class="slide"><img src="../../src/img/wedding.jpeg" alt="Wedding"><p>Wedding</p></div>
+    <div class="slide"><img src="../../src/img/christening.jpeg" alt="Christening"><p>Christening</p></div>
+    <div class="slide"><img src="../../src/img/anniversary.jpeg" alt="Anniversary"><p>Anniversary</p></div>
   </div>
-
+  <button class="prev">&lt;</button>
+  <button class="next">&gt;</button>
+</div>
+<script src="../../src/js/slider.js"></script>
   <div class="packages">
     <h2>Packages:</h2>
     <div class="packages-container">
