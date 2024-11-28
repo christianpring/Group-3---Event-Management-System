@@ -12,6 +12,8 @@ body {
     padding: 0;
     background-image: url('../img/event1.jpg');
     background-size: cover;
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-position: bottom; /* Focuses on the bottom part of the image */
 }
 
 
@@ -137,4 +139,14 @@ h1 {
     .text {
         font-size: 1rem;
     }
+}
+
+.inner-section {
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 40px;
+    width: 60%;
+    max-width: 800px;
+    color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(30, 30, 30, 0.2); 
 }
