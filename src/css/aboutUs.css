@@ -10,7 +10,7 @@ body {
     background-color: #f4f4f4;
     line-height: 1.6;
     padding: 0;
-    background-image: url('event1.jpg');
+    background-image: url('../img/event1.jpg');
     background-size: cover;
 }
 
