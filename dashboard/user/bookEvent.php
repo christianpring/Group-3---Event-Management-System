@@ -27,11 +27,12 @@ $packages = [
 
 // Event background images for each event
 $event_images = [
-    'Birthday' => 'images/Birthday 1_2.jpeg',
-    'Wedding' => 'images/Wedding 1_2.jpeg',
-    'Christening' => 'images/Christening 1_2.jpeg',
-    'Anniversary' => 'images/Party 1_1.jpeg'
+    'Birthday' => '../../src/images/Birthday 1_2.jpeg',
+    'Wedding' => '../../src/images/Wedding 1_2.jpeg',
+    'Christening' => '../../src/images/Christening 1_2.jpeg',
+    'Anniversary' => '../../src/images/Party 1_1.jpeg',
 ];
+
 
 // Main logic
 $step = $_GET['step'] ?? 'overview';
@@ -81,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Booking</title>
-    <link rel="stylesheet" href="../../src/css/user.css">
+    <link rel="stylesheet" href="../../src/css/bookEvent.css">
 </head>
 <body>
     <nav>
