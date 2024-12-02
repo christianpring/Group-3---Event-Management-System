@@ -1,0 +1,83 @@
+/* Basic styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: #0F2573;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a.sign-out-btn {
+    background-color: #266CA9;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #0F2573;
+}
+
+.package-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.package-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.package-card h2 {
+    color: #0F2573;
+    margin-bottom: 15px;
+}
+
+.package-card p {
+    color: #666;
+    font-size: 14px;
+}

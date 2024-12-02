@@ -31,5 +31,38 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
     </nav>
 
     <h1>Hello user, Book your event now.</h1>
+
+
+    <div class="event-container">
+    <div class="event-card" onclick="redirectToPackage('Birthday')">
+        <img src="../../src/img/birthday.jpeg" alt="Birthday Event">
+        <h2>Birthday</h2>
+        <p>Celebrate your special day with loved ones!</p>
+    </div>
+    <div class="event-card" onclick="redirectToPackage('Wedding')">
+        <img src="../../src/img/wedding.jpeg" alt="Wedding Event">
+        <h2>Wedding</h2>
+        <p>Say "I Do" in the perfect setting.</p>
+    </div>
+    <div class="event-card" onclick="redirectToPackage('Christening')">
+        <img src="../../src/img/christening.jpeg" alt="Christening Event">
+        <h2>Christening</h2>
+        <p>Welcome your little one into the world.</p>
+    </div>
+    <div class="event-card" onclick="redirectToPackage('Anniversary')">
+        <img src="../../src/img/anniversary.jpeg" alt="Anniversary Event">
+        <h2>Anniversary</h2>
+        <p>Celebrate your love and togetherness.</p>
+    </div>
+</div>
+<script>
+    function redirectToPackage(eventType) {
+        if (confirm(`Do you want to continue with the ${eventType} event?`)) {
+            // Redirect to package.php with the event type as a query parameter
+            window.location.href = `package.php?event=${eventType}`;
+        }
+    }
+</script>
+
 </body>
 </html>

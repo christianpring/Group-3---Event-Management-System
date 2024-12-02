@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Main container for the receipt */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Receipt section styling */
+.receipt {
+    text-align: left;
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+.receipt p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button container and styling */
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Heading styling */
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+h5{
+    text-align: center;
+}
