@@ -12,8 +12,8 @@ body {
     padding: 0;
     background-image: url('../img/event1.jpg');
     background-size: cover;
-    background-repeat: no-repeat; /* Prevents repeating */
-    background-position: bottom; /* Focuses on the bottom part of the image */
+    background-repeat: no-repeat; 
+    background-position: bottom; 
 }
 
 

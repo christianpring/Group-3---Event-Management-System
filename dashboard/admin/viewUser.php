@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-btn">Ticket Management</a>
                 <ul class="dropdown-menu">
-                <li><a href="mngTickets.php">Manage Tickets</a></li>
                 <li><a href="viewTrans.php">View Transaction</a></li>
+                <li><a href="auditTrail.php">Audit Trail</a></li>
                 </ul>
             </li>
         </ul>

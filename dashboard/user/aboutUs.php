@@ -25,6 +25,7 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
         <ul class="main-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="bookEvent.php">Book Event</a></li>
+            <li><a href="userTransaction.php">My Transaction</a></li>
             <li><a href="aboutUs.php">About Us</a></li>
         </ul>
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>

@@ -1,3 +1,30 @@
+<?php
+require_once '../admin/authentication/admin-class.php';
+$admin = new ADMIN();
+$userId = $_SESSION['adminSession'];
+
+// Fetch the selected event ID from session or query parameter
+$eventId = $_SESSION['selected_event'] ?? $_GET['event_id'] ?? 0;
+
+// Ensure eventId is valid
+if ($eventId == 0) {
+    echo "No event selected.";
+    exit;
+}
+
+// Fetch packages for the selected event
+$stmt = $admin->runQuery("SELECT * FROM packages WHERE event_id = :event_id");
+$stmt->execute([':event_id' => $eventId]);
+$packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Save selected package in session if 'package_id' is passed in the URL
+if (isset($_GET['package_id'])) {
+    $_SESSION['selected_package'] = $_GET['package_id']; 
+    header('Location: schedule.php?event_id=' . $_GET['event_id'] . '&package_id=' . $_GET['package_id']); // Make sure the event_id and package_id are in the URL
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +39,7 @@
         <ul class="main-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="bookEvent.php">Book Event</a></li>
+            <li><a href="userTransaction.php">My Transaction</a></li>
             <li><a href="aboutUs.php">About Us</a></li>
         </ul>
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
@@ -20,31 +48,22 @@
     <h1>Select a Package for Your Event</h1>
 
     <div class="package-container">
-        <div class="package-card" onclick="selectPackage('Package 1')">
-            <h2>Package 1</h2>
-            <p>Premium features for an unforgettable experience.</p>
-        </div>
-        <div class="package-card" onclick="selectPackage('Package 2')">
-            <h2>Package 2</h2>
-            <p>Great value with everything you need for your event.</p>
-        </div>
-        <div class="package-card" onclick="selectPackage('Package 3')">
-            <h2>Package 3</h2>
-            <p>A budget-friendly option for a wonderful event.</p>
-        </div>
+        <!-- Dynamically generate package cards -->
+        <?php foreach ($packages as $package): ?>
+            <div class="package-card" onclick="selectPackage(<?= $package['id'] ?>)">
+                <h2><?= htmlspecialchars($package['name']) ?></h2>
+                <p><?= htmlspecialchars($package['description']) ?></p>
+                <p>Price: $<?= number_format($package['price'], 2) ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
 
     <script>
-        function selectPackage(packageName) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventType = urlParams.get('event');
-
-    const confirmation = confirm(`Do you want to continue with the ${eventType} event and choose ${packageName}?`);
-
-    if (confirmation) {
-        window.location.href = `schedule.php?event=${eventType}&package=${packageName}`;
-    }
-}
+        function selectPackage(packageId) {
+            if (confirm("Do you want to proceed with this package?")) {
+                window.location.href = `schedule.php?package_id=${packageId}&event_id=<?php echo $eventId; ?>`; // Pass both event_id and package_id to schedule.php
+            }
+        }
     </script>
 </body>
 </html>
