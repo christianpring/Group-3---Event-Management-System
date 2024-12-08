@@ -7,7 +7,74 @@ if(!$admin->isUserLoggedIn())
 {
     $admin->redirect('../../');
 }
+// Initialize variables
+$error_message = "";
+$success_message = "";
 
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        // Sanitize and validate inputs
+        $event_name = filter_input(INPUT_POST, 'event_name', FILTER_SANITIZE_STRING);
+        $event_date = filter_input(INPUT_POST, 'event_date', FILTER_SANITIZE_STRING);
+        $event_description = filter_input(INPUT_POST, 'event_description', FILTER_SANITIZE_STRING);
+        $event_location = filter_input(INPUT_POST, 'event_location', FILTER_SANITIZE_STRING);
+        $venue_type = filter_input(INPUT_POST, 'venue_type', FILTER_SANITIZE_STRING);
+        $mc = filter_input(INPUT_POST, 'mc', FILTER_SANITIZE_STRING);
+        $catering = filter_input(INPUT_POST, 'catering', FILTER_SANITIZE_STRING);
+        $services = isset($_POST['services']) ? $_POST['services'] : [];
+
+        // Check required fields
+        if (!$event_name || !$event_date || !$venue_type || !$mc || !$catering) {
+            throw new Exception("Please fill in all required fields.");
+        }
+
+        // Convert additional services array into a string for storage
+        $services_str = implode(', ', array_map('htmlspecialchars', $services));
+
+        // Insert event details into the database
+        $pdo = new PDO($dsn, $db_user, $db_pass); // Use your database credentials
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "INSERT INTO events (
+                    event_name, 
+                    event_date, 
+                    event_description, 
+                    event_location, 
+                    venue_type, 
+                    mc, 
+                    catering, 
+                    services
+                ) VALUES (
+                    :event_name, 
+                    :event_date, 
+                    :event_description, 
+                    :event_location, 
+                    :venue_type, 
+                    :mc, 
+                    :catering, 
+                    :services
+                )";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':event_name', $event_name);
+        $stmt->bindParam(':event_date', $event_date);
+        $stmt->bindParam(':event_description', $event_description);
+        $stmt->bindParam(':event_location', $event_location);
+        $stmt->bindParam(':venue_type', $venue_type);
+        $stmt->bindParam(':mc', $mc);
+        $stmt->bindParam(':catering', $catering);
+        $stmt->bindParam(':services', $services_str);
+
+        $stmt->execute();
+
+        // Success message
+        $success_message = "Event created successfully!";
+    } catch (Exception $e) {
+        // Error message
+        $error_message = "Error: " . $e->getMessage();
+    }
+}
 ?>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
