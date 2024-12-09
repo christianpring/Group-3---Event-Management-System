@@ -7,7 +7,6 @@ if (!$admin->isUserLoggedIn()) {
     $admin->redirect('../../');
 }
 
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,18 +14,15 @@ $dbname = "itelec2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'], $_POST['user_id'])) {
     $user_id = intval($_POST['user_id']);
     $action = $_POST['action'];
 
-    if ($action === 'disable') {
-      
+    if ($action === 'delete') {
         $sql = "UPDATE user SET status = 'disabled' WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
@@ -34,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'], $_POST['use
         $stmt->close();
     }
 
-    
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
@@ -61,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function confirmDisable() {
-    return confirm("Are you sure you want to disable this user?");
+function confirmDelete() {
+    return confirm("Are you sure you want to delete this user?");
 }
 </script>
 
@@ -74,9 +69,21 @@ function confirmDisable() {
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../src/css/admin.css">
     <link rel="stylesheet" href="../../src/css/admin css/removeUser.css">
+    <style>
+        .btn.delete {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .btn.delete:hover {
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
-    <!-- Sidebar -->
     <div class="sidebar">
         <div class="logo">G3MS</div>
         <ul class="sidebar-nav">
@@ -106,20 +113,16 @@ function confirmDisable() {
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
     </div>
     
-    <!-- Main Content Area -->
     <div class="content">
         <h1>Manage Users</h1>
         <div id="userTable">
             <?php
-            
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
 
-           
             $sql = "SELECT id, username, email, status FROM user WHERE status = 'active'";
             $result = $conn->query($sql);
 
@@ -128,10 +131,10 @@ function confirmDisable() {
                 echo "<tr><th>ID</th><th>Username</th><th>Email</th><th>Status</th><th>Actions</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     $statusLabel = $row['status'] === 'active' ? 'Active' : 'Disabled';
-                    $disableButton = $row['status'] === 'active' 
+                    $deleteButton = $row['status'] === 'active' 
                         ? "<form method='POST' style='display:inline-block;'>
                                <input type='hidden' name='user_id' value='{$row['id']}'>
-                               <button type='submit' name='action' value='disable' class='btn disable' onclick='return confirmDisable()'>Disable</button>
+                               <button type='submit' name='action' value='delete' class='btn delete' onclick='return confirmDelete()'>Delete</button>
                            </form>"
                         : "";
 
@@ -140,7 +143,7 @@ function confirmDisable() {
                             <td>{$row['username']}</td>
                             <td>{$row['email']}</td>
                             <td>{$statusLabel}</td>
-                            <td class='actions'>{$disableButton}</td>
+                            <td class='actions'>{$deleteButton}</td>
                           </tr>";
                 }
                 echo "</table>";
