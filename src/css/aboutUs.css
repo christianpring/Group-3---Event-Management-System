@@ -7,10 +7,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
     line-height: 1.6;
     padding: 0;
-    background-image: url('../img/event1.jpg');
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: bottom; 
@@ -82,71 +80,143 @@ nav {
 main {
     margin-top: 80px;
 }
-
-.about-us {
-    display: flex;
-    flex-direction: row;
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: url('event1.jpg') no-repeat center center fixed; 
+    background-size: cover;
     min-height: 100vh;
-    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    padding: 20px;
 }
 
+/* About Us Container */
+.about-us {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    border-radius: 15px;
+    padding: 40px 50px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Fade-In Animation */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Inner Section */
 .inner-section {
-    padding: 40px;
-    width: 60%;
-    max-width: 800px;
-    color: #f4f4f4;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9); /* White background with opacity */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
+/* Header Style */
 h1 {
-    font-size: 2.5rem;
-    font-family: 'Georgia', serif;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #266CA9;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: justify;
-    font-family: 'Lucida Sans', sans-serif;
-    color: #FFFFFF;
+h1::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #266CA9;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
 }
+
+/* Paragraph Styling */
+.text {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: justify;
+    text-justify: inter-word;
+    letter-spacing: 0.5px;
+    font-family: Arial, sans-serif;
+}
+
+/* Contact Us Section */
+h2 {
+    font-size: 2rem;
+    color: #266CA9;
+    margin: 30px 0 15px;
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: #266CA9;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.8;
+}
+
+.contact-info a {
+    color: #2575fc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #266CA9;
+    text-decoration: underline;
+}
+
+
+.contact-info a::before {
+    content: '→';
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover::before {
+    margin-left: 10px;
+}
+
 
 @media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     .about-us {
-        flex-direction: column;
-        padding: 30px 15px;
-    }
-
-    .inner-section {
-        width: 90%;
+        padding: 20px;
     }
 
     h1 {
         font-size: 2rem;
     }
 
+    h2 {
+        font-size: 1.6rem;
+    }
+
     .text {
         font-size: 1rem;
     }
-}
-
-.inner-section {
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 40px;
-    width: 60%;
-    max-width: 800px;
-    color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(30, 30, 30, 0.2); 
 }
