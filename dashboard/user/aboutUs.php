@@ -32,29 +32,21 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
     </nav>
     <br>
     <body>
-        <div class="about-us">
-            <div class="inner-section">
-                <h1>About us</h1>
-                <pc class="text">
-                Welcome to G3MS, your trusted partner in creating 
-                exceptional events and unforgettable experiences. With a passion
-                 for precision and a 
-                 commitment to excellence, we specialize in offering comprehensive 
-                 event management solutions tailored to meet your unique needs.
-                 we are a dynamic team of creative thinkers, meticulous planners, and passionate professionals. 
-                 Whether you're planning a corporate event, a 
-                 grand wedding, a product launch, or a social celebration, we bring your vision to life with creativity, efficiency, and a touch of flair.
-                </p>
-                <br>
-                <h2>Contact Us</h2>
-                <br>
-                <p>
-                    Mobile Number: 09462829896 <br>
-                    Email: G3MS@gmail.com <br>
-                    Instagram: @gemseventsplace <br>
-                </p>
+    <div class="about-us">
+        <div class="inner-section">
+            <h1>About Us</h1>
+            <p class="text">
+                Welcome to G3MS, your trusted partner in creating exceptional events and unforgettable experiences. With a passion for precision and a commitment to excellence, we specialize in offering comprehensive event management solutions tailored to meet your unique needs. We are a dynamic team of creative thinkers, meticulous planners, and passionate professionals. Whether you're planning a corporate event, a grand wedding, a product launch, or a social celebration, we bring your vision to life with creativity, efficiency, and a touch of flair.
+            </p>
+
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p>Mobile Number: 09462829896</p>
+                <p>Email: G3MS@gmail.com</p>
+                <p>Instagram:@gemseventsplace</p>
             </div>
         </div>
+    </div>
     </body>
 </body>
 </html>
