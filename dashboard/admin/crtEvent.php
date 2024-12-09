@@ -89,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_event'])) {
         $messageType = "error";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -101,14 +102,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_event'])) {
     <link rel="stylesheet" href="../../src/css/admin css/createEvent.css">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo">G3MS</div>
-        <ul class="sidebar-nav">
-            <li><a href="viewUser.php">User Management</a></li>
+     <!-- Sidebar -->
+     <div class="sidebar">
+    <div class="logo">G3MS</div>
+    <ul class="sidebar-nav">
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-btn">User Management</a>
+            <ul class="dropdown-menu">
+                <li><a href="viewUser.php">View User</a></li>
+                <li><a href="removeUser.php">Remove User</a></li>
+                <li><a href="userLogs.php">User Logs</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-btn">Event Management</a>
+            <ul class="dropdown-menu">
             <li><a href="mngEvent.php">Manage Events</a></li>
             <li><a href="crtEvent.php">Create Events</a></li>
-        </ul>
-    </div>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-btn">Ticket Management</a>
+            <ul class="dropdown-menu">
+            <li><a href="viewTrans.php">View Transaction</a></li>
+            <li><a href="auditTrail.php">Audit Trail</a></li>
+            </ul>
+        </li>
+    </ul>
+    <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
+</div>
 
     <div class="content">
         <h1>Create New Event and Packages</h1>
