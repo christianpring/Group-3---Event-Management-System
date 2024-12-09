@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_event'])) {
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select><br>
-<!--  -->
+
             <!-- Package Sections -->
             <?php for ($i = 1; $i <= 3; $i++): ?>
                 <div id="package_<?php echo $i; ?>" class="package-section" style="display: none;">
