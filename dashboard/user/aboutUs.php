@@ -10,14 +10,14 @@ $stmt->execute(array(":id" => $_SESSION['adminSession']));
 $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="../../src/css/aboutUs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -30,31 +30,24 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
         </ul>
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
     </nav>
-    <br>
-    <body>
+    
+    <main>
         <div class="about-us">
-            <div class="inner-section">
-                <h1>About us</h1>
-                <pc class="text">
-                Welcome to G3MS, your trusted partner in creating 
-                exceptional events and unforgettable experiences. With a passion
-                 for precision and a 
-                 commitment to excellence, we specialize in offering comprehensive 
-                 event management solutions tailored to meet your unique needs.
-                 we are a dynamic team of creative thinkers, meticulous planners, and passionate professionals. 
-                 Whether you're planning a corporate event, a 
-                 grand wedding, a product launch, or a social celebration, we bring your vision to life with creativity, efficiency, and a touch of flair.
-                </p>
-                <br>
-                <h2>Contact Us</h2>
-                <br>
-                <p>
-                    Mobile Number: 09462829896 <br>
-                    Email: G3MS@gmail.com <br>
-                    Instagram: @gemseventsplace <br>
-                </p>
+            <div class="image-section">
+                <img src="../../src/img/aboutUs.jpg" alt="About Us" />
+            </div>
+            <div class="text-section">
+                <h1>About Us</h1>
+                <p>Welcome to G3MS, your trusted partner in creating exceptional events and unforgettable experiences. With a passion for precision and a commitment to excellence, we specialize in offering comprehensive event management solutions tailored to meet your unique needs.</p>
+                <p>We are a dynamic team of creative thinkers, meticulous planners, and passionate professionals. Whether you're planning a corporate event, a grand wedding, a product launch, or a social celebration, we bring your vision to life with creativity, efficiency, and a touch of flair.</p>
             </div>
         </div>
-    </body>
+
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> 09462829896</p>
+            <p><i class="fas fa-envelope"></i> G3MS@gmail.com</p>
+            <p><i class="fab fa-instagram"></i> @gemseventsplace</p>
+        </div>
+    </main>
 </body>
 </html>
