@@ -52,44 +52,5 @@ include_once '../../config/settings-configuration.php';
   <button class="next">&gt;</button>
 </div>
 <script src="../../src/js/slider.js"></script>
-  <div class="packages">
-    <h2>Packages:</h2>
-    <div class="packages-container">
-      <div class="package">
-        <h3>Package 1: Deluxe Event Package</h3>
-        <ul>
-          <li>Venue</li>
-          <li>Emcee</li>
-          <li>Catering</li>
-          <li>On-site staff</li>
-          <li>Luxury Decorations</li>
-          <li>Red carpet services</li>
-          <li>Special lighting effects</li>
-          <li>Transportation services</li>
-          <li>Photography & Videography</li>
-        </ul>
-      </div>
-      <div class="package">
-        <h3>Package 2: Premium Event Package</h3>
-        <ul>
-          <li>Venue</li>
-          <li>Emcee</li>
-          <li>Catering</li>
-          <li>On-site staff</li>
-          <li>Luxury Decorations</li>
-          <li>Photography & Videography</li>
-        </ul>
-      </div>
-      <div class="package">
-        <h3>Package 3: Basic Event Package</h3>
-        <ul>
-          <li>Venue</li>
-          <li>Emcee</li>
-          <li>Catering</li>
-          <li>Luxury Decorations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
