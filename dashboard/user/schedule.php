@@ -50,6 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $bookingId = $pdo->lastInsertId();
 
+    //insert logs
+    $bookingType = $eventName != "Unknown Event" ? $eventName : $packageName;
+    $activityDesc = "Added ".$bookingType." with ID: ".$packageId;
+    $stmt = $pdo->prepare("INSERT INTO logs (user_id, activity) values (?, ?");
+    $stmt->execute([$userId, $activityDesc]);
+
     header("Location: payment.php?booking_id=$bookingId");
     exit;
 }
