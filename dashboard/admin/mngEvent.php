@@ -35,6 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_event'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
 
+    $currentUser = $_SESSION['adminSession'];
+
+    //insert logs
+    $activityDesc = "Update ".$name." event with ID: ".$eventId;
+    $logsQuery = $db->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
+    $logsQuery->execute([$currentUser, $activityDesc]);
+
     $updateEventQuery = $db->prepare("UPDATE events SET name = ?, description = ? WHERE id = ?");
     $updateEventQuery->execute([$name, $description, $eventId]);
 
@@ -47,6 +54,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_package'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
+
+    $currentUser = $_SESSION['adminSession'];
+
+    //insert logs
+    $activityDesc = "Update ".$name." with ID: ".$packageId;
+    $logsQuery = $db->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
+    $logsQuery->execute([$currentUser, $activityDesc]);
+
+    $updateEventQuery = $db->prepare("UPDATE events SET name = ?, description = ? WHERE id = ?");
+    $updateEventQuery->execute([$name, $description, $eventId]);
 
     $updatePackageQuery = $db->prepare("UPDATE packages SET name = ?, price = ?, description = ? WHERE id = ?");
     $updatePackageQuery->execute([$name, $price, $description, $packageId]);
@@ -61,6 +78,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_package'])) {
     $price = $_POST['price'];
     $description = $_POST['description'];
 
+    $currentUser = $_SESSION['adminSession'];
+
+    //insert logs
+    $activityDesc = "Add ".$name." package with ID: ".$eventId;
+    $logsQuery = $db->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
+    $logsQuery->execute([$currentUser, $activityDesc]);
+
     $addPackageQuery = $db->prepare("INSERT INTO packages (event_id, name, price, description) VALUES (?, ?, ?, ?)");
     $addPackageQuery->execute([$eventId, $name, $price, $description]);
 
@@ -71,6 +95,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_package'])) {
 // Handle Delete Package
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_package'])) {
     $packageId = $_POST['delete_package_id'];
+
+    //get package details
+    $currentUser = $_SESSION['adminSession'];
+    $getPackageDetailsQry = $db->prepare("select name from packages where id = ?");
+    $getPackageDetailsQry->execute([$packageId]);
+    $packageDetails = $getPackageDetailsQry->fetchAll(PDO::FETCH_ASSOC);
+    $packageType = '';
+    foreach($packageDetails as $package){
+        $packageType = $package['name'];
+    }
+
+    //insert logs
+    $activityDesc = "Deleted ".$packageType." package with ID: ".$packageId;
+    $logsQuery = $db->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
+    $logsQuery->execute([$currentUser, $activityDesc]);
 
     // Prepare and execute the delete query
     $deletePackageQuery = $db->prepare("DELETE FROM packages WHERE id = ?");
@@ -83,6 +122,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_package'])) {
 // Handle Delete Event
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_event'])) {
     $eventId = $_POST['delete_event_id'];
+
+    //get event details
+    $currentUser = $_SESSION['adminSession'];
+    $getEventQry = $db->prepare("select name from events where id = ?");
+    $getEventQry->execute([$packageId]);
+    $eventDetails = $getPackageDetailsQry->fetch(PDO::FETCH_ASSOC);
+    $eventType = $eventDetails['name'];
+
+    //insert logs
+    $activityDesc = "Deleted ".$eventType." event with ID: ".$eventId;
+    $logsQuery = $db->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
+    $logsQuery->execute([$currentUser, $activityDesc]);
 
     // Prepare and execute the delete query
     $deleteEventQuery = $db->prepare("DELETE FROM events WHERE id = ?");
