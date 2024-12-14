@@ -8,7 +8,18 @@ if(!$admin->isUserLoggedIn())
     $admin->redirect('../../');
 }
 
+try {
+    $db = new PDO('mysql:host=localhost;dbname=itelec2', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+$auditsQry = $db->prepare("SELECT * FROM logs where activity <> 'Has Successfully signed in.'");
+$auditsQry->execute();
+$audits = $auditsQry->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
@@ -70,7 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Main Content Area -->
     <div class="content">
         <!-- You can add more content here -->
-        <h1></h1>
+        <h1>Audit Trails</h1>
+
+        <table border="1">
+            <tr>
+                <th>User ID</th>
+                <th>Activity</th>
+                <th>Timestamp</th>
+            </tr>
+            <?php foreach ($audits as $audit): ?>
+            <tr>
+                <td><?= $audit['user_id']?></td>
+                <td><?= $audit['activity']?></td>
+                <td><?= $audit['created_at']?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
     </div>
 </body>
 </html>
