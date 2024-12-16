@@ -1,16 +1,6 @@
-<?php
+<?php  
 include_once '../../config/settings-configuration.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G3MS - Event Organizer</title>
-  
-</head>
-<body>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +9,22 @@ include_once '../../config/settings-configuration.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../src/css/user.css">
-    
 
+    <!-- Inline CSS for Background Image -->
+    <style>
+        body {
+            background-image: url('../../src/img/background2.jpg'); /* Path to background image */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-repeat: no-repeat; /* Prevents background repetition */
+            background-position: center; /* Centers the background image */
+            margin: 0; /* Removes default margin */
+            font-family: Arial, sans-serif; /* Default font style */
+            color: #333; /* Default text color */
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="logo">G3MS</div>
         <ul class="main-nav">
@@ -33,15 +35,17 @@ include_once '../../config/settings-configuration.php';
         </ul>
         <a href="../admin/authentication/admin-class.php?admin_signout" class="sign-out-btn">Sign Out</a>
     </nav>
-</body>
-</html>
 
-  <div class="hero">
-    <h1>Your Professional Event Organizer</h1>
-    <p>"From concept to completion, we deliver events that resonate. Let us turn your goals into unforgettable experiences."</p>
-  </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Your Professional Event Organizer</h1>
+        <p>"From concept to completion, we deliver events that resonate. Let us turn your goals into unforgettable experiences."</p>
+    </div>
 
-  <div class="slider">
+  
+
+    <!-- Slider Script -->
+    <div class="slider">
   <div class="slider-container">
     <div class="slide"><img src="../../src/img/birthday.jpeg" alt="Birthday"><p>Birthday</p></div>
     <div class="slide"><img src="../../src/img/wedding.jpeg" alt="Wedding"><p>Wedding</p></div>
