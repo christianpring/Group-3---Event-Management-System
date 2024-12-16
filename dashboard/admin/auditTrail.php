@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../src/css/admin.css">
+    <link rel="stylesheet" href="../../src/css/admin css/viewUser.css">
 </head>
 <body>
     <!-- Sidebar -->
