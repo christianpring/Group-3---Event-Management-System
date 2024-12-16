@@ -91,11 +91,12 @@ try {
     ]);
     error_log("Package updated with payment ID: $orderId");
 
-    //insert logs
-    $activityDesc = "Confirmed ".$packageName." with ID: ".$package['id'];
-    $stmt = $pdo->prepare("INSERT INTO logs (user_id, activity) values (?, ?");
+    // Insert logs
+    $activityDesc = "Confirmed " . $packageName . " with ID: " . $package['id'];
+    $stmt = $pdo->prepare("INSERT INTO logs (user_id, activity) VALUES (?, ?)");
     $stmt->execute([$userId, $activityDesc]);
     error_log("Insert log with payment ID: $orderId");
+
 
     // Commit transaction
     $pdo->commit();
