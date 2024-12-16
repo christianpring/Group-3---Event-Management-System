@@ -92,7 +92,7 @@ try {
     error_log("Package updated with payment ID: $orderId");
 
     //insert logs
-    $activityDesc = "Confirmed ".$packageName." with ID: "$package['id'];
+    $activityDesc = "Confirmed ".$packageName." with ID: ".$package['id'];
     $stmt = $pdo->prepare("INSERT INTO logs (user_id, activity) values (?, ?");
     $stmt->execute([$userId, $activityDesc]);
     error_log("Insert log with payment ID: $orderId");
