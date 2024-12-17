@@ -20,9 +20,9 @@
             else
             {
                 $this->host = "localhost";
-                $this->db_name = "";
-                $this->username = "";
-                $this->password = "";
+                $this->db_name = "u772084991_gems   ";
+                $this->username = "u772084991_gems";
+                $this->password = "Lordyouaregood#15";
             }
         }
         public function dbConnection()
