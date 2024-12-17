@@ -20,7 +20,7 @@
             else
             {
                 $this->host = "localhost";
-                $this->db_name = "u772084991_gems   ";
+                $this->db_name = "u772084991_gems";
                 $this->username = "u772084991_gems";
                 $this->password = "Lordyouaregood#15";
             }
